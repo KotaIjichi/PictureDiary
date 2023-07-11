@@ -11,7 +11,8 @@ import SwiftUI
 struct DiaryAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(uStr: "http://192.168.50.181:8080")
+            ContentView(uStr: "")
+            // enter your server address.
         }
     }
 }
