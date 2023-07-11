@@ -86,23 +86,23 @@ def index ():
     global num
     path = 'static/image/input/' + str (num) + '.jpg'
     img = Image.open (path).convert ('RGB')
-    text = '今日は公園に行ってきた。木々が立ち並ぶ中で、人々が散歩していた。青々とした木々が風に揺れ、爽やかな空気が心地よかった。人々は笑顔で歩いており、リラックスした様子が伺えた。公園では子供たちが駆け回り、友達同士がおしゃべりを楽しんでいた。鳥のさえずりが響き渡り、自然の中で過ごす平和なひとときだった。私も木陰で休みながら、心を落ち着ける時間を過ごした。公園は人々にとって憩いの場であり、自然の中で活気を感じることができる場所だ。明日もまた公園に行きたいと思った。'
+    # text = '今日は公園に行ってきた。木々が立ち並ぶ中で、人々が散歩していた。青々とした木々が風に揺れ、爽やかな空気が心地よかった。人々は笑顔で歩いており、リラックスした様子が伺えた。公園では子供たちが駆け回り、友達同士がおしゃべりを楽しんでいた。鳥のさえずりが響き渡り、自然の中で過ごす平和なひとときだった。私も木陰で休みながら、心を落ち着ける時間を過ごした。公園は人々にとって憩いの場であり、自然の中で活気を感じることができる場所だ。明日もまた公園に行きたいと思った。'
 
     caption = show_n_generate(path)
     print (caption)
 
-    # with open ('api_key.dat') as f:
-    #     openai.api_key = f.readline ()
+    with open ('api_key.dat') as f:
+        openai.api_key = f.readline ()
 
-    # response = openai.ChatCompletion.create(
-    #     model="gpt-3.5-turbo",
-    #     messages=[
-    #         {"role": "system", "content": "以下の文の状況に沿った日記を、200文字以下の日本語で出力してください。文体は「だ・である調」に統一してください。"},
-    #         {"role": "user", "content": caption}
-    #     ]   
-    # )
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "以下の文の状況に沿った日記を、200文字以下の日本語で出力してください。文体は「だ・である調」に統一してください。"},
+            {"role": "user", "content": caption}
+        ]   
+    )
 
-    # text = response["choices"][0]["message"]["content"]
+    text = response["choices"][0]["message"]["content"]
 
     img = generate_image (path, text)
     img_io = BytesIO ()
