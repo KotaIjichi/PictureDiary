@@ -19,6 +19,12 @@
 - Add `pod "Alamofire` after `use_frameworks!`
 - `$ pod install`
 
+## Preparation
 ### OpenAI API
 - Get OpenAI API key
-- Save it as "api_key.dat"
+- Save as `python/api_key.dat`
+
+### Server address
+- `$ python3 python/server.py`
+- Copy your server address
+- Paste to `swift/DiaryApp/DiaryApp/DiaryAppApp.swift`
