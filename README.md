@@ -16,7 +16,7 @@
 - Move to project directory
 - `$ pod init`
 - Edit Podfile
-- Add `pod "Alamofire` after `use_frameworks!`
+- Add `pod 'Alamofire'` after `use_frameworks!`
 - `$ pod install`
 
 ## Preparation
